@@ -3,30 +3,30 @@ import classes from "./ShowProducts.module.css";
 
 const ShowProducts = (props) => {
   const deleteHandler = () => {
-    alert(`${props.ID}`);
-    props.ondelete(props.ID, props.PRICE)
+    // alert(`${props.ID}`);
+    props.ondelete(props.ID, props.PRICE);
   };
 
-  const editHandler = () => {
-    alert("edited");
+  const editHandler = (key) => {
+    // alert(key);
+    // console.log(key)
+    props.onedit(key);
   };
   return (
-    <div>
-      <li className={classes.list} key={props.ID}>
-        <span>
-          <p>{props.NAME}</p>
-          <p>{props.PRICE}</p>
-          <button
-            onClick={() => {
-              deleteHandler(props.ID);
-            }}
-          >
-            Delete
-          </button>
-          <button onClick={editHandler}>Edit</button>
-        </span>
-      </li>
-    </div>
+    // <li  key={props.Index}>
+      <span className={classes.list}>
+        <p>{props.NAME}</p>
+        <p>{props.PRICE}</p>
+        <button
+          onClick={() => {
+            deleteHandler(props.ID);
+          }}
+        >
+          Delete
+        </button>
+        <button onClick={() => editHandler(props.Index)}>Edit</button>
+      </span>
+    // </li>
   );
 };
 
